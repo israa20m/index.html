@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+    <style>
+        /* إعدادات عامة */
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            margin: 0;
+        }
+
+        /* الحاوية الرئيسية */
+        .form-container {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 650px;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* العنوان في المنتصف */
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 26px;
+        }
+
+        /* تنسيق المجموعات */
+        fieldset {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #fafafa;
+        }
+
+        legend {
+            color: #0056b3;
+            font-weight: bold;
+            padding: 0 10px;
+        }
+
+        /* مستطيل لكل حقل */
+        .input-box {
+            background-color: #fff;
+            border: 1px solid #bbb;
+            border-radius: 6px;
+            padding: 10px 15px;
+            margin-bottom: 15px;
+        }
+
+        .input-box label {
+            display: block;
+            font-size: 13px;
+            color: #555;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        /* الحقول نفسها داخل المستطيل */
+        .input-box input[type="text"],
+        .input-box input[type="email"],
+        .input-box input[type="password"],
+        .input-box input[type="tel"],
+        .input-box input[type="date"],
+        .input-box select,
+        .input-box textarea {
+            width: 100%;
+            border: none;
+            outline: none;
+            font-size: 15px;
+            background: transparent;
+        }
+
+        /* ترتيب الحقول جنب بعضها */
+        .row {
+            display: flex;
+            gap: 15px;
+        }
+        .row .input-box {
+            flex: 1;
+        }
+
+        /* الراديو والتشيك بوكس */
+        .options-box {
+            background-color: #fff;
+            border: 1px solid #bbb;
+            border-radius: 6px;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .options-box label {
+            font-size: 14px;
+            cursor: pointer;
+            font-weight: normal;
+        }
+
+        /* الأزرار */
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn-submit {
+            background-color: #0056b3;
+            color: white;
+        }
+
+        .btn-reset {
+            background-color: #ddd;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <!-- العنوان في المنتصف -->
+        <h2>Student Registration Form</h2>
+        
+        <form action="/submit" method="POST">
+            
+            <!-- القسم الأول -->
+            <fieldset>
+                <legend>Personal Information</legend>
+                
+                <div class="row">
+                    <div class="input-box">
+                        <label>First Name</label>
+                        <input type="text" placeholder="Enter first name" required>
+                    </div>
+                    <div class="input-box">
+                        <label>Last Name</label>
+                        <input type="text" placeholder="Enter last name" required>
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="example@domain.com" required>
+                </div>
+
+                <div class="input-box">
+                    <label>Password</label>
+                    <input type="password" placeholder="At least 8 characters" required>
+                </div>
+
+                <div class="input-box">
+                    <label>Date of Birth</label>
+                    <input type="date" required>
+                </div>
+
+                <div class="input-box">
+                    <label>Gender</label>
+                    <div style="display: flex; gap: 20px; margin-top: 5px;">
+                        <label><input type="radio" name="gender" value="male"> Male</label>
+                        <label><input type="radio" name="gender" value="female"> Female</label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- القسم الثاني -->
+            <fieldset>
+                <legend>Additional Information</legend>
+
+                <div class="input-box">
+                    <label>Country</label>
+                    <select>
+                        <option>Palestine</option>
+                        <option>Jordan</option>
+                        <option>Egypt</option>
+                    </select>
+                </div>
+
+                <div class="input-box">
+                    <label>Phone Number</label>
+                    <input type="tel" placeholder="059-123-4567">
+                </div>
+
+                <div class="input-box">
+                    <label>Bio</label>
+                    <textarea rows="2" placeholder="Write a short bio..."></textarea>
+                </div>
+
+                <div class="input-box">
+                    <label>Profile Picture</label>
+                    <input type="file" style="border: none; padding: 5px 0;">
+                </div>
+            </fieldset>
+
+            <!-- القسم الثالث -->
+            <fieldset>
+                <legend>Terms & Conditions</legend>
+                
+                <div class="options-box">
+                    <input type="checkbox" id="news">
+                    <label for="news">I want to receive the newsletter</label>
+                </div>
+
+                <div class="options-box">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">I agree to the Terms and Conditions</label>
+                </div>
+            </fieldset>
+
+            <!-- الأزرار -->
+            <div class="btn-group">
+                <button type="submit" class="btn-submit">Register</button>
+                <button type="reset" class="btn-reset">Clear Form</button>
+            </div>
+
+        </form>
+    </div>
+
+</body>
+</html>
